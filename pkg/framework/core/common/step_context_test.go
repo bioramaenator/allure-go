@@ -83,6 +83,9 @@ func (m *providerTMockStep) Name() string {
 	return m.name
 }
 
+func (m *providerTMockStep) Helper() {
+}
+
 type providerMockStep struct {
 	status allure.Status
 	msg    string
@@ -481,6 +484,7 @@ func TestStepCtx_WithNewAsyncStep_panic(t *testing.T) {
 }
 
 func TestStepCtx_Name(t *testing.T) {
+	t.Helper()
 	mockT := newStepProviderMock()
 	mockT.name = "test"
 	var actualName string
